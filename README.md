@@ -35,7 +35,7 @@ console.log to see the results:</p>
         <img width="417" alt="Screenshot 2023-03-07 at 11 29 45" src="https://user-images.githubusercontent.com/32480112/223396575-bc218852-7a69-40ed-b80a-6f2bdaa0ee49.png">
       </li>
       <li>At this point you should be using console.log() to display the results of each round and the winner at the end.</li>
-      <li>Use prompt() to get input from the user. <a href="[https://www.youtube.com/watch?v=s9wW2PpJsmQ](https://developer.mozilla.org/en-US/docs/Web/API/Window/prompt)" target="_blank">Read the docs here.</a></li>
+      <li>Use prompt() to get input from the user. <a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/prompt" target="_blank">Read the docs here.</a></li>
       <li> Feel free to re-work your previous functions if you need to. Specifically, you
       might want to change the return value to something more useful.
       </li>
