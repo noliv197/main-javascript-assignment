@@ -42,7 +42,10 @@ console.log to see the results:</p>
   </li>
 </ol>
 
+
 ## Logic
+
+![js-assignment-flowchart](https://user-images.githubusercontent.com/32480112/223684788-aa7b4f3c-be10-44e1-80d7-aedfd901d545.png)
 
 ## Group
 ### Members
