@@ -17,7 +17,7 @@ function runGame(){
         }
         
         computer.selection = computerPLay()
-        alert(playRound(player, computer))
+        alert(`${playRound(player, computer)}\nYou have ${4-i} rounds left.`)
     }
     alert(printFinalResult(player.score,computer.score))
 }
@@ -30,10 +30,10 @@ function computerPLay(){
 function playerPlay(first){
     let userInput
     if (first){
-        userInput = prompt("Your input was not valid. Choose between:\nRock or Paper or Scissors")
+        userInput = prompt("Your input was not valid.\nChoose between: Rock or Paper or Scissors")
         return (userInput != null ? userInput.toLowerCase(): 'empty')
     }
-    userInput = prompt("Choose your move\nRock Paper Scissors")
+    userInput = prompt("Type in your move.\nChoose between: Rock or Paper or Scissors")
     return (userInput != null ? userInput.toLowerCase(): 'empty')
 }
 
@@ -48,29 +48,15 @@ function playRound(player,computer){
     if (player.selection === computer.selection){
         return `It's a Draw!\n${computer.selection} <-> ${player.selection}`
     }
-    else if(player.selection === 'rock' && computer.selection === 'paper'){
+    else if((player.selection === 'rock' && computer.selection === 'paper') ||
+            (player.selection === 'paper' && computer.selection === 'scissors') ||
+            (player.selection === 'scissors' && computer.selection === 'rock')){
         computer.score += 1
-        return `You Lose!\nPaper beats Rock`
-    }
-    else if(player.selection === 'rock' && computer.selection === 'scissors'){
-        player.score += 1
-        return `You Win!\nRock beats Scissors`
-    }
-    else if(player.selection === 'paper' && computer.selection === 'scissors'){
-        computer.score += 1
-        return `You Lose!\nScissors beats Paper`
-    }
-    else if(player.selection === 'paper' && computer.selection === 'rock'){
-        player.score += 1
-        return `You Win!\nPaper beats Rock`
-    }
-    else if(player.selection === 'scissors' && computer.selection === 'rock'){
-        computer.score += 1
-        return `You Lose!\nRock beats Scissors`
+        return `You Lose!\n${computer.selection} beats ${player.selection}`
     }
     else {
         player.score += 1
-        return `You Win!\nScissors beats Paper`
+        return `You Win!\n${player.selection} beats ${computer.selection}`
     }
 }
 
@@ -85,7 +71,7 @@ function printFinalResult(playerScore,computerScore){
     else{
         result = "No one wins, It's a Draw!"
     }
-    return `${result}\nYour Final Score x Computer Final Score\n${playerScore} x ${computerScore}`
+    return `${result}\nYour Final Score: ${playerScore}\nComputer Final Score: ${computerScore}`
 }
 
 runGame()
