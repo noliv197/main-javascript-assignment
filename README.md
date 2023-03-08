@@ -1,5 +1,13 @@
-# main-javascript-assignment
+# :black_circle: :scroll: :scissors: Game Assignment :black_circle: :scroll: :scissors:
 
+## Table of contents
+- [Instructions](#instructions)
+- [Logic](#logic)
+- [Group](#group)
+  - [Members](#members)
+  - [Responsibilities](#responsibilities)
+
+## Instructions 
 <ol>
   <li><p>Create a blank HTML document with a script tag (Hint: it is best practice to link an
 external .js file). This game is going to be played completely from the console, so don’t
@@ -29,10 +37,28 @@ console.log to see the results:</p>
       <li>At this point you should be using console.log() to display the results of each round and the winner at the end.</li>
       <li>Use prompt() to get input from the user. <a href="[https://www.youtube.com/watch?v=s9wW2PpJsmQ](https://developer.mozilla.org/en-US/docs/Web/API/Window/prompt)" target="_blank">Read the docs here.</a></li>
       <li> Feel free to re-work your previous functions if you need to. Specifically, you
-        might want to change the return value to something more useful.</li>
-      <li>Feel free to re-work your previous functions if you need to. Specifically, you
-might want to change the return value to something more useful.</li>
-    </ol>
+      might want to change the return value to something more useful.
+      </li>
   </li>
 </ol>
 
+## Logic
+
+## Group
+### Members
+* [David Ghizzi](https://github.com/daveiho)
+* [Natália Oliveira](https://github.com/noliv197)
+* [Sharon Ettinger](https://github.com/SharonEttinger)
+
+### Responsibilities
+__David__
+* logic implementation
+* code review
+
+__Natalia__
+* code implementation
+* code review
+
+__Sharon__
+* tests
+* code review
