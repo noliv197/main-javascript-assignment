@@ -1,16 +1,36 @@
 const gameChoices = ['rock','paper','scissors']
+const messages = {
+    welcome: "Welcome to the Rock Paper Scissors game!\nClick on 'OK' or press ENTER to start",
+    exitCheck: "Do you want to exit the game?\n\nIf you want to continue type NO\nIf you want to exit, click on the OK or Cancel button",
+    exit: "See you later",
+    input: "Type in your move.\nChoose between: Rock or Paper or Scissors",
+    invalidInput: "Your input was not valid.\nChoose between: Rock or Paper or Scissors",
+    win: "Congratulations! You won :)",
+    lose: "Better luck next time! You lose :(",
+    draw: "No one wins, It's a Draw!",
+}
 
 function runGame(){
     let computer = {selection:'', score: 0}
     let player = {selection:'', score: 0}
     
-    alert(`Welcome to the Rock Paper Scissors game!\nClick on 'OK' or press ENTER to start`)
+    alert(messages.welcome)
     
-    for(let i = 0; i < 5; i++){
-        let roundsLeft = 4-i
+    for(let round = 0; round < 5; round++){
+        let roundsLeft = 4-round
 
         player.selection = playerPlay(0)
         while (true){
+            if (checkUserInput(player.selection) === 'exit'){
+                let userInput = prompt(messages.exitCheck)
+                if(checkExitAttempt(userInput)){
+                    return alert(messages.exit)
+                } 
+                else{
+                    player.selection = playerPlay(0)
+                }
+            }
+
             if (checkUserInput(player.selection))
                 break
             else{
@@ -22,7 +42,7 @@ function runGame(){
         alert(`${playRound(player, computer)}\nYou have ${roundsLeft} rounds left.`)
 
     }
-    console.log(printFinalResult(player.score,computer.score))
+    alert(printFinalResult(player.score,computer.score))
 }
 
 function computerPLay(){
@@ -30,21 +50,32 @@ function computerPLay(){
     return gameChoices[randomIndex]
 }
 
-function playerPlay(first){
+function playerPlay(attempt){
     let userInput
-    if (first){
-        userInput = prompt("Your input was not valid.\nChoose between: Rock or Paper or Scissors")
+    if (attempt){
+        userInput = prompt(messages.invalidInput)
         return (userInput != null ? userInput.toLowerCase(): 'empty')
     }
-    userInput = prompt("Type in your move.\nChoose between: Rock or Paper or Scissors")
+    userInput = prompt(messages.input)
     return (userInput != null ? userInput.toLowerCase(): 'empty')
 }
 
 function checkUserInput(input){
-    if (gameChoices.includes(input)){
+    if (input == 'empty')
+        return 'exit'
+    else if (gameChoices.includes(input)){
         return true
     }
-    return false
+    else return false
+}
+
+function checkExitAttempt(input){
+    if (input == null)
+        return true
+    else if (input.toLowerCase() == 'no'){
+        return false
+    }
+    else return true
 }
 
 function playRound(player,computer){
@@ -66,16 +97,15 @@ function playRound(player,computer){
 function printFinalResult(playerScore,computerScore){
     let result
     if (playerScore > computerScore){
-        result = "Congratulations! You won :)"
+        result = messages.win
     }
     else if(playerScore < computerScore){
-        result = "Better luck next time! You lose :("
+        result = messages.lose
     }
     else{
-        result = "No one wins, It's a Draw!"
+        result = messages.draw
     }
     return `${result}\nYour Final Score: ${playerScore}\nComputer Final Score: ${computerScore}`
 }
 
 runGame()
-
