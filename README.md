@@ -4,8 +4,6 @@
 - [Instructions](#instructions)
 - [Logic](#logic)
 - [Group](#group)
-  - [Members](#members)
-  - [Responsibilities](#responsibilities)
 
 ## Instructions 
 <ol>
@@ -48,20 +46,7 @@ console.log to see the results:</p>
 ![js-assignment-flowchart](https://user-images.githubusercontent.com/32480112/223684788-aa7b4f3c-be10-44e1-80d7-aedfd901d545.png)
 
 ## Group
-### Members
-* [David Ghizzi](https://github.com/daveiho)
-* [Natália Oliveira](https://github.com/noliv197)
-* [Sharon Ettinger](https://github.com/SharonEttinger)
-
-### Responsibilities
-__David__
-* logic implementation
-* code review
-
-__Natalia__
-* code implementation
-* code review
-
-__Sharon__
-* tests
-* code review
+|David Ghizzi|Natalia Oliveira|Sharon Ettinger|
+|------------|----------------|---------------|
+|<img src="https://github.com/daveiho.png" alt="David github profile" width="100">|<img src="https://github.com/noliv197.png" alt="Natalia github profile" width="100">|<img src="https://github.com/SharonEttinger.png" alt="Sharon github profile" width="100">|
+|[@daveiho](https://github.com/daveiho)|[@noliv197](https://github.com/noliv197)|[@SharonEttinger](https://github.com/SharonEttinger)|
