@@ -7,7 +7,7 @@ function runGame(){
     alert(`Welcome to the Rock Paper Scissors game!\nClick on 'OK' or press ENTER to start`)
     
     for(let i = 0; i < 5; i++){
-        let rounds = 4-i
+        let roundLeft = 4-i
 
         player.selection = playerPlay(0)
         while (true){
@@ -19,7 +19,7 @@ function runGame(){
         }
         
         computer.selection = computerPLay()
-        alert(`${playRound(player, computer)}\nYou have ${rounds} rounds left.`)
+        alert(`${playRound(player, computer)}\nYou have ${roundsLeft} rounds left.`)
 
     }
     console.log(printFinalResult(player.score,computer.score))
