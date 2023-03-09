@@ -7,7 +7,7 @@ function runGame(){
     alert(`Welcome to the Rock Paper Scissors game!\nClick on 'OK' or press ENTER to start`)
     
     for(let i = 0; i < 5; i++){
-        let roundLeft = 4-i
+        let roundsLeft = 4-i
 
         player.selection = playerPlay(0)
         while (true){
