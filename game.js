@@ -28,6 +28,7 @@ function runGame(){
                 } 
                 else{
                     player.selection = playerPlay(0)
+                    continue
                 }
             }
 
