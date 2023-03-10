@@ -1,6 +1,7 @@
 const gameChoices = ['rock','paper','scissors']
 const messages = {
-    welcome: "Welcome to the Rock Paper Scissors game!\nClick on 'OK' or press ENTER to start",
+    welcome: "Welcome to the Rock Paper Scissors game!\nClick on 'OK' or press ENTER to start.",
+    nameInput: "You just entered the Rock Paper Scissor game.\n¿What is your name?",
     exitCheck: "Do you want to exit the game?\n\nIf you want to continue type NO\nIf you want to exit, click on the OK or Cancel button",
     exit: "See you later",
     input: "Type in your move.\nChoose between: Rock or Paper or Scissors",
@@ -10,12 +11,22 @@ const messages = {
     draw: "No one wins, It's a Draw!",
 }
 
+let name = prompt(messages.nameInput)
+name = checkNameInput(name)
+
+function checkNameInput (input){
+    let validNameRegex = /^([a-zàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšž]+[,.]?[ ]?|[a-zàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšž]+['-]?)+$/i
+    if (validNameRegex.test(input) && input != null)
+        return input.toLowerCase()
+    else return 'Anonymous'
+}
+
 function runGame(){
     let computer = {selection:'', score: 0}
     let player = {selection:'', score: 0}
     
-    alert(messages.welcome)
-    
+    alert(`Welcome ${name}!\nClick on 'OK' or press ENTER to start the game.`) 
+
     for(let round = 0; round < 5; round++){
         let roundsLeft = 4-round
 
