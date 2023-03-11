@@ -1,20 +1,33 @@
 const gameChoices = ['rock','paper','scissors']
 const messages = {
-    welcome: "Welcome to the Rock Paper Scissors game!\nClick on 'OK' or press ENTER to start",
-    exitCheck: "Do you want to exit the game?\n\nIf you want to continue type NO\nIf you want to exit, click on the OK or Cancel button",
-    exit: "See you later",
-    input: "Type in your move.\nChoose between: Rock or Paper or Scissors",
+    nameInput: "You just entered the Rock Paper Scissor game.\nWhat is your name?",
+    moveInput: "Type in your move.\nChoose between: Rock or Paper or Scissors",
     invalidInput: "Your input was not valid.\nChoose between: Rock or Paper or Scissors",
+    exitMatch: "Do you want to leave this match?\n\nIf you want to continue type NO\nIf you want to exit, click on the OK or Cancel button",
+    exitGame: "See you later!",
+    restart: "Do you want to restart the game?\n\nType Yes or press Enter to play again\nType No or click on the Cancel button to exit",
     win: "Congratulations! You won :)",
     lose: "Better luck next time! You lose :(",
     draw: "No one wins, It's a Draw!",
 }
 
 function runGame(){
+    let rematch = true
+    let playerName = prompt(messages.nameInput)
+    playerName = checkNameInput(playerName)
+    
+    alert(`Welcome ${playerName}!\nClick on 'OK' or press ENTER to start the game.`)
+    while (rematch === true){
+        runMatch()
+        playerRematch = prompt(messages.restart)
+        if (!checkRematchAttempt(playerRematch)) rematch = false  
+    }
+    alert(messages.exitGame)
+}
+
+function runMatch(){
     let computer = {selection:'', score: 0}
     let player = {selection:'', score: 0}
-    
-    alert(messages.welcome)
     
     for(let round = 0; round < 5; round++){
         let roundsLeft = 4-round
@@ -22,9 +35,9 @@ function runGame(){
         player.selection = playerPlay(0)
         while (true){
             if (checkUserInput(player.selection) === 'exit'){
-                let userInput = prompt(messages.exitCheck)
+                let userInput = prompt(messages.exitMatch)
                 if(checkExitAttempt(userInput)){
-                    return alert(messages.exit)
+                    return
                 } 
                 else{
                     player.selection = playerPlay(0)
@@ -57,8 +70,15 @@ function playerPlay(attempt){
         userInput = prompt(messages.invalidInput)
         return (userInput != null ? userInput.toLowerCase(): 'empty')
     }
-    userInput = prompt(messages.input)
+    userInput = prompt(messages.moveInput)
     return (userInput != null ? userInput.toLowerCase(): 'empty')
+}
+
+function checkNameInput(input){
+    let validNameRegex = /^([a-zàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšž]+[,.]?[ ]?|[a-zàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšž]+['-]?)+$/i
+    if (validNameRegex.test(input) && input != null)
+        return input.toLowerCase()
+    else return 'Anonymous'
 }
 
 function checkUserInput(input){
@@ -73,6 +93,15 @@ function checkUserInput(input){
 function checkExitAttempt(input){
     if (input == null)
         return true
+    else if (input.toLowerCase() == 'no'){
+        return false
+    }
+    else return true
+}
+
+function checkRematchAttempt(input){
+    if (input == null)
+        return false
     else if (input.toLowerCase() == 'no'){
         return false
     }
